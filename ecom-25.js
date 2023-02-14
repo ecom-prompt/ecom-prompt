@@ -61,33 +61,50 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let [industryName] = industrySelected;
     selectedText.innerText = industryName.value;
     currentIndustry=industryName.value;
+     if(selectedText.innerText != "Select"){
+     selectedText.style.color="#fff";
+     }
     // framework dd
     let frameworkValueSelect = [...frameworkNames].filter(e => e.checked);
     let [frameworkSelected] = frameworkValueSelect;
     frameworkText.innerText = frameworkSelected.value;
     currentFramework=frameworkSelected.getAttribute("data-prompt");
-        
+     if(frameworkText.innerText != "Select"){
+     frameworkText.style.color="#fff";
+     }
     // positioning dd
     let positioningSelected = [...positioningNames].filter(e => e.checked);
     let [positioningName] = positioningSelected;
     positioningText.innerText=positioningName.value;
       currentPositioning=positioningName.getAttribute("data-prompt");
+     if(positioningText.innerText != "Select"){
+     positioningText.style.color="#fff";
+     }
     // holiday dd
     let holidaySelect = [...holidayNames].filter(e => e.checked);
     let [holidaySelected] = holidaySelect;
     holidayText.innerText=holidaySelected.value;
     currentHoliday=holidaySelected.getAttribute("data-prompt");
+    if(holidayText.innerText != "Select"){
+     holidayText.style.color="#fff";
+     }
     // offer dd
     let offerSelect = [...offerNames].filter(e => e.checked);
     let [offerSelected] = offerSelect;
     offerText.innerText=offerSelected.value;
     currentOffer=offerSelected.getAttribute("data-prompt");
+     if(offerText.innerText != "Select"){
+     offerText.style.color="#fff";
+     }
     // channel dd
     let channelSelect = [...channelNames].filter(e => e.checked);
     let [channelSelected] = channelSelect;
     channelText.innerText=channelSelected.value;
       currentChannel=channelSelected.value;
-        console.log(currentFramework,currentChannel,currentHoliday,currentOffer,currentPositioning,currentIndustry);
+         if(channelText.innerText != "Select"){
+     channelText.style.color="#fff";
+     }
+       // console.log(currentFramework,currentChannel,currentHoliday,currentOffer,currentPositioning,currentIndustry);
      let currentTab = [...contentTabs].find(e=>e.classList.contains("active-tab"));
         let activeTab= currentTab.innerText;
       switch(activeTab){
@@ -192,97 +209,182 @@ window.addEventListener('DOMContentLoaded', (event) => {
     switch(currentTab){
     case "Homepage Headline":
      hideFields=[2,5,9];
-     selectiveFields(hideFields);   
+     selectiveFields(hideFields); 
+       generateButton();
     break;
     case "Homepage Content":
      hideFields=[1,2,9];
     selectiveFields(hideFields);
+      generateButton();
     break;
     case "About us Content":
      hideFields=[1,2,4,6,9,5];
     selectiveFields(hideFields);
+             generateButton();
     break;
     case "Collection Title":
     hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
     break;
     case "Collection Description":
     hideFields=[2,9,4];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "FAQ":
      hideFields=[2,3,4,5,7,8,9];
     selectiveFields(hideFields);
+             generateButton();
     break;
     case "Product titles":
      hideFields=[2,9];
     selectiveFields(hideFields);
+             generateButton();
     break;
     case "Product Descriptions":
      hideFields=[4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Page Meta Title":
     hideFields=[2,1,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Page Meta Description":
     hideFields=[2,1,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Product Page Meta Title":
     hideFields=[2,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Product Page Meta Description":
     hideFields=[2,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Email Subject Line":
     hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Email Content":
     hideFields=[9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "SMS message":
     hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Whatsapp Message":
      hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Browser Notification":
      hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "App Notification":
     hideFields=[2,4,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Ad caption":
      hideFields=[2,4];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Ad copy":
      hideFields=[2,4];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Social media page description":
      hideFields=[2];
     selectiveFields(hideFields);
+             generateButton();
       break;
     case "Article":
      hideFields=[2,9];
     selectiveFields(hideFields);
+             generateButton();
       break;
     default:
     console.log("Default");
     }
     })
     })
-    setInterval(fieldInput,500);
+      // generate button 
+    function generateButton(){
+    let generateBtn = document.querySelector("#generate-btn");
+    let emailForm = document.querySelector("#email-collection-form");
+    let wrapperEmailForm = document.querySelector(".wrapper-email-form");
+    let generatedResult = document.querySelector(".result-ai");
+    let resultAiContainer = document.querySelector(".copy-result-container");
+    // generate button email form
+    generateBtn.addEventListener("click",showForm);
+    //generate AI result
+    function showForm(){
+    let cookieData=document.cookie.split(";");
+    if(cookieData.indexOf(" email=true") != -1){
+    generatePrompt();
+    }
+    else{
+    wrapperEmailForm.style.display="block";
+    emailForm.addEventListener("submit",function(){
+    document.cookie="email=true";
+    wrapperEmailForm.style.display="none";
+    generatePrompt();
+    })
+    }
+    }
+    }
+    // 
+// generate prompt
+function generatePrompt(){
+let resultText = document.querySelector(".result-text");
+let promptText = resultText.innerText;
+console.log(promptText);
+let urlRequest = "https://api.openai.com/v1/completions";
+let key = "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";
+fetch(urlRequest,{
+method:"POST",
+headers:{
+"Content-Type": 'application/json',
+"Authorization": "Bearer " + key,
+},
+body:JSON.stringify({
+ "model": "text-davinci-003",
+  "prompt":promptText ,
+  "max_tokens": 750,
+  "temperature": 0,
+  "n":1
+})
+}).then(response=>response.json()).then((data)=>{
+console.log(data);
+let aiResult=data.choices[0].text;
+let str = aiResult.replace(/\n/g, '');
+generatedResult.innerText= aiResult.replace(/\n/g, '').substr(1);
+resultAiContainer.style.display="block";});
+}
+});
+// copy to clipboard
+let copyBtn = document.querySelector(".copy-btn");
+copyBtn.addEventListener("click",function(){
+copyBtn.innerText="Copied";
+copyBtn.style.backgroundColor="#ff7608";
+let copyWrapperText = document.querySelector(".result-ai").innerText;
+setTimeout(function(){copyBtn.style.backgroundColor="#0000";copyBtn.innerText="Copy";},1000)
+navigator.clipboard.writeText(copyWrapperText);
+});
+   setInterval(fieldInput,500);
     });
     
