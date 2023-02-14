@@ -101,116 +101,134 @@ hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Act as an ecommerce merchandising expert and create a product collection title for [product] from [brand]."
+ resultText.innerText=promptBase;  
 break;
 case "Collection Description":
 hideFields=[2,9,4];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Act as an ecommerce merchandising expert and create a product collection description for the [product] from the brand [brand]";
-break;
+ resultText.innerText=promptBase;
+  break;
 case "FAQ":
  hideFields=[2,3,4,5,7,8,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Behave like an ecommerce retail product specialist and create a list of FAQs with answers for the product '[product]' by the brand [brand].";
+resultText.innerText=promptBase;
 break;
 case "Product titles":
  hideFields=[2,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Behave like an ecommerce merchandising specialist and draft a product title for [product] from [brand], a [industry] brand.";
-
+resultText.innerText=promptBase;
 break;
 case "Product Descriptions":
  hideFields=[4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce merchandising specialist and write a product description to list [product] on an ecommerce store {brand] for a customer who is a [ICP]";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Page Meta Title":
 hideFields=[2,1,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce SEO expert and generate a page meta title for the brand '[brand]' from the [industry] industry";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Page Meta Description":
 hideFields=[2,1,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce SEO expert and generate a page meta description for the brand '[brand]' from the [industry] industry";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Product Page Meta Title":
 hideFields=[2,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce SEO expert and generate a page meta title for [product] from the brand '[brand]' from the [industry] industry";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Product Page Meta Description":
 hideFields=[2,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce SEO expert and generate a page meta description for [product] from brand '[brand]' from the [industry] industry";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Email Subject Line":
 hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Act like an email marketing specialist and draft an email subject line for [product] by the brand [brand] using a maximum of 50 characters.";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Email Content":
 hideFields=[9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Act like an email marketing expert for ecommerce and draft an email campaign for the product '[product]' from the brand '[brand]', belonging to the [industry] industry. The campaign is intended for a [ICP].";
-break;
+resultText.innerText=promptBase;
+  break;
 case "SMS message":
 hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce marketing expert and create an SMS campaign for the product '[product]' from the brand '[brand]'";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Whatsapp Message":
  hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Behave like an ecommerce marketing expert for Whatsapp and create a campaign for the product '[product]' from the brand '[brand]'";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Browser Notification":
  hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce website expert and generate a browser notification for the product '[product]' for the store '[brand]'";
-break;
+resultText.innerText=promptBase;
+  break;
 case "App Notification":
 hideFields=[2,4,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce product expert and generate an app notification for the product '[product]' for the app '[brand]'";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Ad caption":
  hideFields=[2,4];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce digital advertiser and create an ad caption for the product [product] from the brand '[brand]. Optimize the caption for [channel] ads and relevant character limits.";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Ad copy":
  hideFields=[2,4];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce digital advertising copywriter and create ad copy for the product [product] from the brand '[brand]'. Optimize the copy for [channel] ads.";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Social media page description":
  hideFields=[2];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Think like an ecommerce social media specialist and write a 90 character [channel] page description for a [industry] brand named [brand] which sells [product]";
-break;
+resultText.innerText=promptBase;
+  break;
 case "Article":
  hideFields=[2,9];
 selectiveFields(hideFields);
 resultText.innerText = basePromptMain;
 promptBase="Act as an ecommerce content writer and write an article on the product '[product]' from the brand '[brand]'";
-break;
+resultText.innerText=promptBase;
+  break;
 default:
 console.log("Default");
 }
