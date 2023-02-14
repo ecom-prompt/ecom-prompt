@@ -1,7 +1,5 @@
-<script>
-
 window.addEventListener('DOMContentLoaded', (event) => {
-    // Selective loading
+// Selective loading
 let contentTabs = document.querySelectorAll(".content-tab");
 let fieldBrand = document.querySelector("#field-brand");
 let fieldProduct = document.querySelector("#field-product");
@@ -220,4 +218,3 @@ console.log("Default");
 })
 setInterval(fieldInput,500);
 });
-</script>
